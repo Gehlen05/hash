@@ -5,10 +5,9 @@
 
 
 #define TAM 50
-#define NUM_NACOES 87
-#define ALFABETO 3
+#define ALFABETO 26
 
-#define DEBUG
+//#define DEBUG
 
 
 struct dados
@@ -82,7 +81,7 @@ void ler_arquivo(char *vet,char *ARQ, int *tamanho, lista_enc_t **listas)
         }
 
 
-        add_cabeca(listas[produto[0]-65], cria_no(cria_produto(produto,valor)));
+        add_cabeca(listas[hash_index], cria_no(cria_produto(produto,valor)));
 
     }
     fclose(fp);
@@ -139,6 +138,8 @@ void busca_produto(lista_enc_t **listas)
     int valor_p;
     produtos_t *produto;
     no_t *no;
+    int set=0;
+    printf("A PRIMEIRA LETRA E MAISCULA\n");
     printf("Digite o produto desejado:");
     scanf("%s", produto_digitado);
 
@@ -158,13 +159,16 @@ void busca_produto(lista_enc_t **listas)
         if (strcmp (compara,produto_digitado) == 1 )
         {
             valor_p=obtem_preco(produto);
+            printf("PRODUTO         PRECO\n");
             printf("%s, %d,00", compara, valor_p);
+            set=1;
             break;
         }
         no=obtem_proximo(no);
     }
-    printf("Produto não cadastrado");
-
+        if(set==0){
+        printf("Produto não cadastrado");
+        }
 }
 
 
@@ -191,4 +195,27 @@ int obtem_preco(produtos_t *p)
     }
 
     return p->preco;
+}
+
+void libera_listas(lista_enc_t **listas){
+    no_t *no, *no_aux;
+    produtos_t *produto;
+    int i;
+    if(listas==NULL){
+        fprintf(stderr, "libera_pessoas: p invalido!\n");
+		exit(EXIT_FAILURE);
+    }
+
+    for(i=0;i<ALFABETO;i++){
+        no=obtem_cabeca(listas[i]);
+        while(no){
+            produto=obtem_dado(no);
+            free(produto->nome);
+            free(produto);
+            no_aux=no;
+            no=obtem_proximo(no);
+            free(no_aux);
+        }
+        free(listas[i]);
+    }
 }

@@ -10,6 +10,7 @@ int main()
 {
     lista_enc_t **listas;
      int tamanho=0;
+     int x=1;
 
 
 
@@ -17,6 +18,12 @@ int main()
 
 
    ler_arquivo(vet,ARQ, &tamanho, listas);
-   busca_produto(listas);
+   while(x==1){
+        busca_produto(listas);
+        printf("\nNova busca tecle 1:\n");
+        scanf("%d",&x);
+        system("cls");
+   }
+    libera_listas(listas);
     return 0;
 }

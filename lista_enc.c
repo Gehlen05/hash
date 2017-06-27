@@ -4,7 +4,7 @@
 #include "lista_enc.h"
 #include "no.h"
 
-#define DEBUG
+//#define DEBUG
 
 struct listas_enc {
     no_t *cabeca;
