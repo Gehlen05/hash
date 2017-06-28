@@ -64,14 +64,13 @@ void ler_arquivo(char *vet,char *ARQ, int *tamanho, lista_enc_t **listas)
             exit(EXIT_FAILURE);
         }
 
-#ifdef DEBUG
+        #ifdef DEBUG
         //printf("Num de caracteres do nome %2d : %d",i+1,strlen(produto));
         printf("\nProduto : %s",produto);
         printf("\nValor: %d",valor);
 
         printf("hash index: %d\n", produto[0]-65);
-
-#endif // DEBUG
+        #endif
         int hash_index = produto[0]-65;
 
         if (hash_index < 0 || hash_index > 26){
@@ -121,6 +120,11 @@ lista_enc_t ** cria_vetor_de_listas()
 {
     int i;
     lista_enc_t ** listas = malloc(sizeof(lista_enc_t*)*26);
+    if(listas==NULL){
+            perror("malloc cria_pessoa : vetor->listas");
+         exit(-1);
+
+    }
 
     for(i=0; i<26; i++)
     {
@@ -217,5 +221,6 @@ void libera_listas(lista_enc_t **listas){
             free(no_aux);
         }
         free(listas[i]);
-    }
+}
+    free(listas);
 }
