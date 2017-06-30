@@ -1,0 +1,39 @@
+RELAÇÃO DE COMPRAS	VALOR
+Alface			,1
+Rucula			,2	
+Acelga			,3	
+Repoho			,5
+Tomate			,7
+Alho			,9
+Chuchu			,1	
+Beterraba		,8
+Bata doce		,12
+Batata Inglesa		,99
+Cheiro Verde		,101
+Cebola			,70
+Oregano			,55
+Alho torrado sem sal	,40
+Leite			,41
+Iogurte			,96
+Jenipapo		,34
+Mamão			,19
+Melão			,15
+Banana			,19
+Laranja			,21	
+Tabua de cortar carnes	,88
+Marmita			,72
+Mat platico p cafe	,33
+Maçã			,44
+Limão			,78
+Aceto Balsâmico		,91
+Azeite Virgem		,44
+Azeite Temperado	,12
+Arroz Integral		,66
+Macarrão		,666
+Filtro p cafe		,1000
+Suporte filtro p cafe	,26
+Garrafa Termica p cafe	,49
+Canecas			,54
+Detergente		,11
+Esponja de aço		,5
+Esponja			,37
